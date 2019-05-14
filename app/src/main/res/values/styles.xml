@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme"
+        parent = "Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        .....
+    </style>
+
+    <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+
+    </style>
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <style name="Progressbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+
+</resources>
