@@ -5,19 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.epicodus.com.R;
+import com.epicodus.com.adapters.RestaurantListAdapter;
 import com.epicodus.com.models.Restaurant;
 import com.epicodus.com.services.YelpService;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -25,8 +24,9 @@ import okhttp3.Response;
 
 public class RestaurantsActivity extends AppCompatActivity {
     public static final String TAG = RestaurantsActivity.class.getSimpleName();
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
-    @BindView(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private RestaurantListAdapter mAdapter;
+
     private ArrayList<Restaurant> restaurants = new ArrayList<>();
 
 
@@ -38,7 +38,6 @@ public class RestaurantsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText("Here are all the restaurants near: " + location);
         getRestaurants(location);
     }
 
@@ -61,17 +60,8 @@ public class RestaurantsActivity extends AppCompatActivity {
                         for(int i = 0; i<restaurantNames.length;i++){
                             restaurantNames[i]=restaurants.get(i).getName();
                         }
-                        ArrayAdapter adapter = new ArrayAdapter(RestaurantsActivity.this, android.R.layout.simple_list_item_1, restaurantNames);
-                        mListView.setAdapter(adapter);
-                        for (Restaurant restaurant : restaurants) {
-                            Log.d(TAG, "Name: " + restaurant.getName());
-                            Log.d(TAG, "Phone: " + restaurant.getPhone());
-                            Log.d(TAG, "Website: " + restaurant.getWebsite());
-                            Log.d(TAG, "Image url: " + restaurant.getImageUrl());
-                            Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
-                            Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
-                            Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
-                        }
+                        mAdapter =new RestaurantListAdapter(getApplicationContext(),restaurants);
+
                     }
                 });
             }
