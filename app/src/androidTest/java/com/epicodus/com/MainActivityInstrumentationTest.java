@@ -2,6 +2,8 @@ package com.epicodus.com;
 
 import androidx.test.rule.ActivityTestRule;
 
+import com.epicodus.com.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

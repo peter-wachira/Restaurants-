@@ -2,6 +2,8 @@ package com.epicodus.com;
 
 import android.widget.ListView;
 
+import com.epicodus.com.ui.RestaurantsActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

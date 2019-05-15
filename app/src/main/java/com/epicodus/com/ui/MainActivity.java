@@ -1,4 +1,4 @@
-package com.epicodus.com;
+package com.epicodus.com.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.epicodus.com.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -12,19 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".YelpService"
+            android:name=".services.YelpService"
             android:enabled="true"
             android:exported="true"></service>
 
-        <activity android:name=".splashScreen">
+        <activity android:name=".ui.splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RestaurantsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.RestaurantsActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

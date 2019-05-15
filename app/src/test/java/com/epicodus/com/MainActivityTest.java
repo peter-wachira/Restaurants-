@@ -3,6 +3,9 @@ package com.epicodus.com;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.epicodus.com.ui.MainActivity;
+import com.epicodus.com.ui.RestaurantsActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +17,7 @@ import static junit.framework.TestCase.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
-    public  MainActivity activity;
+    public MainActivity activity;
 
     @Before
     public void setup(){

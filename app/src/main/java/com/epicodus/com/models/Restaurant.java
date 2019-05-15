@@ -1,4 +1,4 @@
-package com.epicodus.com;
+package com.epicodus.com.models;
 
 import java.util.ArrayList;
 
