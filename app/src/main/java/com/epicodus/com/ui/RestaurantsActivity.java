@@ -3,10 +3,9 @@ package com.epicodus.com.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.epicodus.com.R;
@@ -17,6 +16,7 @@ import com.epicodus.com.services.YelpService;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -24,7 +24,7 @@ import okhttp3.Response;
 
 public class RestaurantsActivity extends AppCompatActivity {
     public static final String TAG = RestaurantsActivity.class.getSimpleName();
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private RestaurantListAdapter mAdapter;
 
     private ArrayList<Restaurant> restaurants = new ArrayList<>();
@@ -61,7 +61,10 @@ public class RestaurantsActivity extends AppCompatActivity {
                             restaurantNames[i]=restaurants.get(i).getName();
                         }
                         mAdapter =new RestaurantListAdapter(getApplicationContext(),restaurants);
+                        RecyclerView.LayoutManager layoutManager =   new LinearLayoutManager(RestaurantsActivity.this);
 
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }
